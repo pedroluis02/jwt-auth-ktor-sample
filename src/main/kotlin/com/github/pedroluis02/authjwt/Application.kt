@@ -1,5 +1,6 @@
 package com.github.pedroluis02.authjwt
 
+import com.github.pedroluis02.authjwt.routing.configureRouting
 import io.ktor.server.application.*
 
 fun main(args: Array<String>) {
