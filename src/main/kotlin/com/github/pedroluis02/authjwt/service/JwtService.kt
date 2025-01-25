@@ -2,6 +2,7 @@ package com.github.pedroluis02.authjwt.service
 
 import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
+import com.github.pedroluis02.authjwt.model.JwtProperties
 import com.github.pedroluis02.authjwt.model.UserLogin
 import com.github.pedroluis02.authjwt.repository.UserRepository
 import io.ktor.server.auth.jwt.*

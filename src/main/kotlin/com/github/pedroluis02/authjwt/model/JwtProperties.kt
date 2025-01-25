@@ -1,4 +1,4 @@
-package com.github.pedroluis02.authjwt.service
+package com.github.pedroluis02.authjwt.model
 
 data class JwtProperties(
     val domain: String,
