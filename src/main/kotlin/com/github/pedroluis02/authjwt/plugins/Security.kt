@@ -1,4 +1,4 @@
-package com.github.pedroluis02.authjwt
+package com.github.pedroluis02.authjwt.plugins
 
 import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm

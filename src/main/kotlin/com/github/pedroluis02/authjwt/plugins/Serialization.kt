@@ -1,4 +1,4 @@
-package com.github.pedroluis02.authjwt
+package com.github.pedroluis02.authjwt.plugins
 
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
