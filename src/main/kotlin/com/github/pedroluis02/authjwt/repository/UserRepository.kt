@@ -10,14 +10,10 @@ class UserRepository {
 
     fun findById(id: Long) = users.firstOrNull { it.id == id }
 
-    fun save(user: User): User? {
-        val found = findByUsername(user.username)
-
-        return if (found == null) {
-            val userWithId = user.copy(id = (users.size + 1).toLong())
-            users.add(userWithId)
-            userWithId
-        } else null
+    fun save(user: User): User {
+        val userWithId = user.copy(id = (users.size + 1).toLong())
+        users.add(userWithId)
+        return userWithId
     }
 
     fun findByUsername(username: String) = users.firstOrNull { it.username == username }

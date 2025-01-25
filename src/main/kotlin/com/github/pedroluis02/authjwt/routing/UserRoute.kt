@@ -1,17 +1,17 @@
 package com.github.pedroluis02.authjwt.routing
 
 import com.github.pedroluis02.authjwt.model.User
-import com.github.pedroluis02.authjwt.repository.UserRepository
+import com.github.pedroluis02.authjwt.service.UserService
 import io.ktor.http.*
 import io.ktor.server.auth.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
-fun Route.userRoute(repository: UserRepository) {
+fun Route.userRoute(service: UserService) {
     post {
         val request = call.receive<UserRequest>()
-        val created = repository.save(request.toModel())
+        val created = service.save(request.toModel())
             ?: return@post call.respond(HttpStatusCode.BadRequest)
 
         call.respond(HttpStatusCode.Created, created.toResponse())
@@ -19,7 +19,7 @@ fun Route.userRoute(repository: UserRepository) {
 
     authenticate {
         get {
-            val users = repository.findAll()
+            val users = service.findAll()
             call.respond(users.map(User::toResponse))
         }
 
@@ -27,7 +27,7 @@ fun Route.userRoute(repository: UserRepository) {
             val id = call.parameters["id"]?.toLong()
                 ?: return@get call.respond(HttpStatusCode.BadRequest)
 
-            val found = repository.findById(id)
+            val found = service.findById(id)
                 ?: return@get call.respond(HttpStatusCode.NotFound)
 
             call.respond(found.toResponse())
