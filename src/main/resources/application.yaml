@@ -9,4 +9,4 @@ jwt:
   domain: "http://localhost"
   audience: "jwt-audience"
   realm: "ktor sample app"
-  secret: "secret"
+  secret: "$SECRET"
