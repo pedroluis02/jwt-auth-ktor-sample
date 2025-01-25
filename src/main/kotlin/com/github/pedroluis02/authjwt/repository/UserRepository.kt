@@ -20,5 +20,5 @@ class UserRepository {
         } else null
     }
 
-    private fun findByUsername(username: String) = users.firstOrNull { it.username == username }
+    fun findByUsername(username: String) = users.firstOrNull { it.username == username }
 }

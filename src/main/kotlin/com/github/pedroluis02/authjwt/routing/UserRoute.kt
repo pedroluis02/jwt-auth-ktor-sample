@@ -7,9 +7,7 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
-fun Route.userRoute() {
-    val repository = UserRepository()
-
+fun Route.userRoute(repository: UserRepository) {
     get {
         val users = repository.findAll()
         call.respond(users.map(User::toResponse))
